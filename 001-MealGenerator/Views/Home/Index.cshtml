@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Random Meal Generator</h1>
+    <p>What do you fancy today?</p>
+    
+<a href="@Url.Action("Recipe", "RandomMealGenerator")">
+    <button type="button" class="btn btn-primary">Generate Random Meal</button>
+</a>
+</div>

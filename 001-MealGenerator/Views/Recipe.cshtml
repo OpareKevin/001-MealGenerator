@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Meal Generate";
+}
+
+<h1>@Model.Title</h1>
+<div class="row">
+    <div class="col-md-6">
+        <img src="@Model.Image" alt="@Model.Title" class="img-thumbnail" />
+    </div>
+    <div class="col-md-6">
+        <p><b>Difficulty:</b> @(Model.Difficulty ?? "N/A")</p>
+        <p><b>Portion:</b> @(Model.Portion ?? "N/A")</p>
+        <p><b>Time:</b> @(Model.Time ?? "N/A")</p>
+        <p>@(Model.Description ?? "No description available.")</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            @if (Model.Ingredients != null)
+            {
+                @foreach (var ingredient in Model.Ingredients)
+                {
+                    <li>@(ingredient?.Quantity ?? "N/A") @(ingredient?.Name ?? "N/A")</li>
+                }
+            }
+            else
+            {
+                <li>No ingredients available.</li>
+            }
+        </ul>
+    </div>
+</div>
+
+<h2>Instructions:</h2>
+<ol>
+    @if (Model.IntructionSteps != null)
+    {
+        @foreach (var step in Model.IntructionSteps)
+        {
+            <li>@(step?.Step ?? "N/A") - @(step?.Description ?? "N/A")</li>
+        }
+    }
+    else
+    {
+        <li>No instructions available.</li>
+    }
+</ol>

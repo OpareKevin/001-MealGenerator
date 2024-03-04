@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001-MealGenerator", "001-MealGenerator\001-MealGenerator.csproj", "{A38A5130-D607-429A-A80E-1AE3A8D51352}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A38A5130-D607-429A-A80E-1AE3A8D51352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A38A5130-D607-429A-A80E-1AE3A8D51352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A38A5130-D607-429A-A80E-1AE3A8D51352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A38A5130-D607-429A-A80E-1AE3A8D51352}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

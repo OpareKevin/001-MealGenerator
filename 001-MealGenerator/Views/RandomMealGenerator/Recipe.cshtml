@@ -1,0 +1,46 @@
+@model _001_MealGenerator.Models.Meal
+
+@{
+    ViewBag.Title = "Recipe Generator";
+    Layout = "_Layout";
+}
+
+<h1>@Model.StrMeal</h1>
+<div class="row">
+    <div class="col-md-6">
+        <img src="@Model.StrMealThumb" alt="@Model.StrMeal" class="img-thumbnail" />
+    </div>
+    <div class="col-md-6">
+        <p>@(Model.StrInstructions ?? "No description available.")</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            @for (int i = 1; i <= 20; i++)
+            {
+                var ingredientProperty = typeof(Meal).GetProperty($"StrIngredient{i}");
+                var measureProperty = typeof(Meal).GetProperty($"StrMeasure{i}");
+
+                if (ingredientProperty?.GetValue(Model) is string ingredient && !string.IsNullOrEmpty(ingredient))
+                {
+                    var measure = measureProperty?.GetValue(Model) as string ?? "N/A";
+                    <li>@measure @ingredient</li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+<h2>Instructions:</h2>
+<ol>
+    @if (!string.IsNullOrEmpty(Model.StrInstructions))
+    {
+        var instructions = Model.StrInstructions.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+        for (int i = 0; i < instructions.Length; i++)
+        {
+            <li>@(i + 1) - @instructions[i]</li>
+        }
+    }
+    else
+    {
+        <li>No instructions available.</li>
+    }
+</ol>
